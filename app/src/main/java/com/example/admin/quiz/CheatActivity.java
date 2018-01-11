@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 public class CheatActivity extends AppCompatActivity {
+    private static final String TAG = "CheatActivity";
 
     public static final String EXTRA_ANSWER_IS_TRUE =
             "com.example.admin.quiz.answer_is_true";
@@ -48,6 +50,7 @@ public class CheatActivity extends AppCompatActivity {
                 } else {
                     mAnswerTextView.setText(R.string.false_button);
                 }
+                Log.i(TAG, "mAnswerIsTrue "+Boolean.toString(mAnswerIsTrue));
                 setAnswerShownResult(true);
 
             }

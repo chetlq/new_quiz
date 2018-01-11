@@ -7,13 +7,22 @@ package com.example.admin.quiz;
 public class Question {
     private int mTextResId;
     private boolean mAnswerTrue;
+    private boolean mResult;
 
     public int getTextResId() {
         return mTextResId;
     }
 
+    public boolean isResult() {
+        return mResult;
+    }
+
     public boolean isAnswerTrue() {
         return mAnswerTrue;
+    }
+
+    public void setResult(boolean Result) {
+        mResult = Result;
     }
 
     public void setAnswerTrue(boolean answerTrue) {
@@ -24,9 +33,11 @@ public class Question {
         mTextResId = textResId;
     }
 
-    public Question(int textResId, boolean AnswerTrue) {
+    public Question(int textResId, boolean AnswerTrue, boolean Result) {
         mTextResId = textResId;
 
         mAnswerTrue = AnswerTrue;
+
+        mResult = Result;
     }
 }
