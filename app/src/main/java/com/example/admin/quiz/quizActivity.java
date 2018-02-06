@@ -115,8 +115,12 @@ public class quizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startService(new Intent(getApplicationContext(), MyIntentService.class));
+                startService(quizActivity.this.getIntent());
+                startService(quizActivity.this.getIntent().putExtra("time", 3).putExtra("task",
+                        "Погладить кота"));
 //                Toast.makeText(quizActivity.this,R.string.correct_toast,Toast.LENGTH_SHORT).show();
-                checkAnswer(false);
+//                checkAnswer(false);
 
             }
         });
@@ -163,15 +167,14 @@ public class quizActivity extends AppCompatActivity {
             }
         });
 
-        mServiceButton = (Button) findViewById( R.id.cheat_button );
+        mServiceButton = (Button) findViewById( R.id.service_button);
         mServiceButton.setOnClickListener( new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                //Intent intentMyIntentService = new Intent(quizActivity.this, MyIntentService.class);
-                startService(new Intent(getApplicationContext(), MyIntentService.class));
-                startService(quizActivity.this.getIntent());
-                startService(quizActivity.this.getIntent().putExtra("time", 3).putExtra("task",
+                Intent intentMyIntentService = new Intent(quizActivity.this, MyIntentService.class);
+
+                startService(intentMyIntentService.putExtra("time", 3).putExtra("task",
                         "Погладить кота"));
 //                startService(intentMyIntentService.putExtra("time", 1).putExtra("task",
 //                        "Покормить кота"));
