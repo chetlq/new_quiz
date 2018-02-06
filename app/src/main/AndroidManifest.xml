@@ -21,7 +21,10 @@
         </activity>
         <activity
             android:name=".CheatActivity"
-            android:label="@string/title_activity_cheat" ></activity>
+            android:label="@string/title_activity_cheat" />
+
+        <service
+            android:name=".MyIntentService"/>
     </application>
 
 </manifest>

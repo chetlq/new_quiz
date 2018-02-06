@@ -26,6 +26,7 @@ public class quizActivity extends AppCompatActivity {
     private Button mPreviousButton;
 
     private Button mCheatButton;
+    private Button mServiceButton;
 
     private TextView mQuestionTextView;
     private   Question[] mQuestionBank = new Question[] {
@@ -83,6 +84,8 @@ public class quizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
+
+
 
         mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +162,24 @@ public class quizActivity extends AppCompatActivity {
                 startActivityForResult(i, REQUEST_CODE_CHEAT);
             }
         });
+
+        mServiceButton = (Button) findViewById( R.id.cheat_button );
+        mServiceButton.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //Intent intentMyIntentService = new Intent(quizActivity.this, MyIntentService.class);
+                startService(new Intent(getApplicationContext(), MyIntentService.class));
+                startService(quizActivity.this.getIntent());
+                startService(quizActivity.this.getIntent().putExtra("time", 3).putExtra("task",
+                        "Погладить кота"));
+//                startService(intentMyIntentService.putExtra("time", 1).putExtra("task",
+//                        "Покормить кота"));
+//                startService(intentMyIntentService.putExtra("time", 4).putExtra("task",
+//                        "Поиграть с котом"));
+
+            }
+        } );
 
 
         if (savedInstanceState != null) {

@@ -24,4 +24,5 @@ freshwater lake.</string>
     <string name="judgment_toast">Cheating is wrong.</string>
     <string name="was_toast">This question was already.</string>
     <string name="title_activity_cheat">title_activity_cheat</string>
+    <string name="service_button">Service button</string>
 </resources>
